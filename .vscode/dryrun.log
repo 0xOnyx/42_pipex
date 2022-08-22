@@ -1,0 +1,12 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/onyx/Documents/PROG/42_pipex'
+make -C libft
+gcc  -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -c src/ft_child_process.c -o src/ft_child_process.o
+gcc  -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -c src/ft_init_env.c -o src/ft_init_env.o
+gcc  -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -c src/ft_init_file.c -o src/ft_init_file.o
+gcc  -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -c src/ft_init_fork.c -o src/ft_init_fork.o
+gcc  -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -c src/ft_init_pipe.c -o src/ft_init_pipe.o
+gcc  -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -c src/main.c -o src/main.o
+gcc  ./src/ft_child_process.o ./src/ft_init_env.o ./src/ft_init_file.o ./src/ft_init_fork.o ./src/ft_init_pipe.o ./src/main.o -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address -o pipex
+make: Leaving directory '/home/onyx/Documents/PROG/42_pipex'
+ 
