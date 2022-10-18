@@ -1,9 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jerdos-s <marvin@42lausanne.ch>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/18 18:45:16 by jerdos-s          #+#    #+#              #
+#    Updated: 2022/10/18 18:45:17 by jerdos-s         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = pipex
 LIBFT = libft
 CFLAGS = 
 CC = gcc
 SRC_PATH = ./src/
-OPTIONS = -Ilibft -Iincludes  -L./libft -lft -g3 -fsanitize=address
+OPTIONS = -Ilibft -Iincludes  -g3 -fsanitize=address
 SRC =	ft_child_process.c \
 		ft_init_env.c \
 		ft_init_file.c \
@@ -22,7 +34,7 @@ $(LIBFT):
 	$(CC) $(CFLAGS) $(OPTIONS) -c $(<) -o $(<:.c=.o)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CLFAGS) $(OBJS) $(OPTIONS) -o $(NAME)
+	$(CC) $(CLFAGS) $(OBJS) -L./libft -lft $(OPTIONS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
@@ -32,6 +44,6 @@ fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFT) fclean
 
-re: flcean all
+re: fclean all
 
 .PHONY: re fclean clean all $(LIBFT)

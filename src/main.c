@@ -15,7 +15,7 @@
 static void	ft_print_usage(void)
 {
 	ft_putstr_fd(NAME, 2);
-	ft_putstr_fd(": usage =>\n\t./pipex file1 cmd1 cmd2 file2", 2);
+	ft_putstr_fd(": usage =>\n\t./pipex file1 cmd1 cmd2 file2\n", 2);
 }
 
 static int	ft_check_arg(int argc)
