@@ -63,7 +63,7 @@ int	ft_first_child_process(t_data *data, char *cmd, char **env)
 		return (1);
 	}
 	close(data->pipe_fd[0]);
-	close(data->file_fd_in);
+	close(data->file_fd_out);
 	arg = ft_split(cmd, ' ');
 	cmd_path = ft_get_cmd(arg[0], data->env_path);
 	if (execve(cmd_path, arg, env) < 0)
@@ -87,7 +87,7 @@ int	ft_second_child_process(t_data *data, char *cmd, char **env)
 		return (1);
 	}
 	close(data->pipe_fd[1]);
-	close(data->file_fd_out);
+	close(data->file_fd_in);
 	waitpid(data->child_pid_1, NULL, 0);
 	arg = ft_split(cmd, ' ');
 	cmd_path = ft_get_cmd(arg[0], data->env_path);
